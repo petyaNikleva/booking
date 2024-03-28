@@ -1,4 +1,4 @@
-import ListingCard from '@/components/ListingCard/ListingCard.jsx';
+import ListingCard from '@/components/ListingCard.jsx';
 
 const ListingList = ({ listings }) => {
   return (
