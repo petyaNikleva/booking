@@ -9,6 +9,11 @@ const HomePage = () => {
   const [listings, setListings] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [filters, setFilters] = useState({
+    dates: undefined,
+    guests: 0,
+    search: '',
+  });
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -16,7 +21,7 @@ const HomePage = () => {
       setError(null);
 
       try {
-        const response = await api.get('/api/listings');
+        const response = await api.get('/api/listings', { params: filters });
         setListings(response.data);
       } catch {
         setError('Something went wrong. Please try again later.');
@@ -26,10 +31,10 @@ const HomePage = () => {
     };
 
     fetchListings();
-  }, []);
+  }, [filters]);
 
   const handleFilters = (filters) => {
-    // Will implement later
+    setFilters(filters);
   };
 
   const renderListingList = () => {
