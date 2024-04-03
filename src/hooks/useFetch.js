@@ -16,7 +16,7 @@ const useFetch = (url, options) => {
       setIsLoading(true);
 
       abortControllerRef.current = new AbortController();
-   
+
       try {
         const response = await api.get(url, {
           ...options,
