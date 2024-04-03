@@ -12,7 +12,7 @@ const ListingFilters = ({ onChange }) => {
     onChange({ dates, guests, search });
   };
 
-  console.log('listing filters rendered')
+  console.log('listing filters rendered');
   return (
     <div className='flex flex-row items-center justify-center gap-2'>
       <Input
