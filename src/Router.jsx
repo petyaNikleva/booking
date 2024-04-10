@@ -1,10 +1,13 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import Route from '@/components/Route';
+import HomePage from '@/pages/HomePage';
+import ListingDetailsPage from '@/pages/ListingDetailsPage';
+import ListingFavoritesPage from '@/pages/ListingFavoritesPage';
+import NotFoundPage from '@/pages/NotFoundPage';
+import SignInPage from '@/pages/SignInPage';
+
 import App from './App';
-import HomePage from './pages/HomePage.jsx';
-import ListingDetailsPage from './pages/ListingDetailsPage.jsx';
-import ListingFavoritesPage from './pages/ListingFavouritesPage.jsx';
-import NotFoundPage from './pages/NotFoundPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -13,16 +16,36 @@ const router = createBrowserRouter([
     errorElement: <NotFoundPage />,
     children: [
       {
-        path: '/',
-        element: <HomePage />,
+        path: '/signin',
+        element: (
+          <Route>
+            <SignInPage />
+          </Route>
+        ),
       },
       {
-        path: '/favorites',
-        element: <ListingFavoritesPage />,
+        path: '/',
+        element: (
+          <Route isProtected>
+            <HomePage />
+          </Route>
+        ),
       },
       {
         path: '/listings/:listingId',
-        element: <ListingDetailsPage />,
+        element: (
+          <Route isProtected>
+            <ListingDetailsPage />
+          </Route>
+        ),
+      },
+      {
+        path: '/favorites',
+        element: (
+          <Route isProtected>
+            <ListingFavoritesPage />
+          </Route>
+        ),
       },
     ],
   },

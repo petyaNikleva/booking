@@ -33,4 +33,14 @@ export const users = [
     initials: 'DA',
     password: 'cosdensolutions',
   }),
+  createUser({
+    id: 2,
+    avatarUrl: 'https://i.pravatar.cc/150?img=2',
+    bio: `Hello, I am User Two, your friendly host.`,
+    email: 'test@gmail.com',
+    firstName: 'Test',
+    lastName: 'Test',
+    initials: 'TT',
+    password: 'testtest',
+  }),
 ];
