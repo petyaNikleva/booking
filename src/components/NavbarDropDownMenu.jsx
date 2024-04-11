@@ -1,5 +1,6 @@
-import { ExternalLink, Laptop, Menu, Moon, Sun, User } from 'lucide-react';
+import { Laptop, LogOut, Menu, Moon, Sun } from 'lucide-react';
 
+import api from '@/api/index.js';
 import { useTheme } from '@/components/ThemeProvider';
 import {
   Button,
@@ -12,10 +13,23 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui';
-import { env } from '@/lib/env';
 
-const DevbarMenu = () => {
+import { useAuth } from './AuthProvider.jsx';
+
+const NavbarDropDownMenu = () => {
   const { setTheme } = useTheme();
+
+  const { setToken } = useAuth();
+
+  const handleSignOut = async () => {
+    try {
+      await api.post('/api/signout');
+
+      setToken(null);
+    } catch {
+      setToken(null);
+    }
+  };
 
   return (
     <DropdownMenu>
@@ -26,16 +40,6 @@ const DevbarMenu = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end'>
-        <DropdownMenuItem>
-          <ExternalLink className='mr-2 h-4 w-4' />
-          Course
-        </DropdownMenuItem>
-        <a href={env.DISCORD_URL} target='_blank' rel='noreferrer'>
-          <DropdownMenuItem>
-            <User className='mr-2 h-4 w-4' />
-            Discord
-          </DropdownMenuItem>
-        </a>
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <Sun className='mr-2 h-4 w-4' />
@@ -58,9 +62,13 @@ const DevbarMenu = () => {
             </DropdownMenuSubContent>
           </DropdownMenuPortal>
         </DropdownMenuSub>
+        <DropdownMenuItem onClick={handleSignOut}>
+          <LogOut className='mr-2 h-4 w-4' />
+          Sign Out
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
 };
 
-export default DevbarMenu;
+export default NavbarDropDownMenu;

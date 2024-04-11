@@ -12,11 +12,10 @@ const ListingFilters = ({ onChange }) => {
     onChange({ dates, guests, search });
   };
 
-  console.log('listing filters rendered');
   return (
-    <div className='flex flex-row items-center justify-center gap-2'>
+    <div className='flex flex-col md:flex-row items-center justify-center gap-2'>
       <Input
-        className='w-[400px]'
+        className='w-[250px] md:w-[500px]'
         placeholder='Search destinations'
         value={search}
         onChange={(e) => setSearch(e.target.value)}
@@ -27,7 +26,7 @@ const ListingFilters = ({ onChange }) => {
         minDate={new Date()}
         placeholder='Add dates'
       />
-      <Stepper label='guest' value={guests} onChange={setGuests} />
+      <Stepper  className='w-[250px]' label='guest' value={guests} onChange={setGuests} />
       <Button onClick={handleSubmit}>
         <Search className='h-4 w-4' />
       </Button>

@@ -10,7 +10,7 @@ import {
 } from '@/state/listings/listingsSlice';
 
 const ListingFavoriteButton = ({ className, listing }) => {
-    console.log('className', className)
+  console.log('className', className);
   const favoriteListingIds = useSelector(
     (state) => state.listings.favoriteListingIds,
   );
@@ -37,7 +37,7 @@ const ListingFavoriteButton = ({ className, listing }) => {
       }}
     >
       <Heart
-        className={cn('h-4 w-4', { 'fill-primary text-primary': isFavorite } )}
+        className={cn('h-4 w-4', { 'fill-primary text-primary': isFavorite })}
       />
     </Button>
   );

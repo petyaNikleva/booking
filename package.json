@@ -1,9 +1,5 @@
 {
   "name": "project-react",
-  "author": {
-    "name": "Cosden Solutions",
-    "email": "contact@cosdensolutions.io"
-  },
   "private": true,
   "version": "1.0.0",
   "type": "module",

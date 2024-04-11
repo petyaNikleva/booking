@@ -45,15 +45,19 @@ const SignInForm = () => {
     <Card className='mx-auto w-[500px]'>
       <CardHeader>
         <h2 className='text-center text-2xl'>Sign In</h2>
-        <p className='text-center text-muted-foreground'>
-          Sign in using your email and password
+        <p className='text-center text-primary'>
+          <h6>
+            *To access the app use the following credentials:
+          </h6>
+          <div>testUser@gmail.com</div>
+          <div>testUser</div>
         </p>
         <Separator />
       </CardHeader>
       <CardContent>
         <form className='flex flex-col gap-4'>
           <div>
-            <Input {...register('email')} placeholder='name@example.com' />
+            <Input {...register('email')} placeholder='Email...' />
             {errors['email'] && (
               <div className='mt-2 text-sm text-red-500'>
                 {errors['email'].message}
@@ -62,7 +66,11 @@ const SignInForm = () => {
           </div>
 
           <div>
-            <Input {...register('password')} type='password' />
+            <Input
+              {...register('password')}
+              type='password'
+              placeholder='Password...'
+            />
             {errors['password'] && (
               <div className='mt-2 text-sm text-red-500'>
                 {errors['password'].message}

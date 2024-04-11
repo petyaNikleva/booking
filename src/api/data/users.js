@@ -27,20 +27,10 @@ export const users = [
     My home is a cozy and welcoming place, meticulously maintained and equipped with all the amenities for your convenience. I believe in creating a homely atmosphere for my guests where they can relax and feel at home.
     
     I am looking forward to hosting you and providing you the best experience. Welcome to our city and enjoy your stay!`,
-    email: 'demo@cosdensolutions.io',
-    firstName: 'Demo',
-    lastName: 'Account',
-    initials: 'DA',
-    password: 'cosdensolutions',
-  }),
-  createUser({
-    id: 2,
-    avatarUrl: 'https://i.pravatar.cc/150?img=2',
-    bio: `Hello, I am User Two, your friendly host.`,
-    email: 'test@gmail.com',
+    email: 'testUser@gmail.com',
     firstName: 'Test',
-    lastName: 'Test',
-    initials: 'TT',
-    password: 'testtest',
+    lastName: 'User',
+    initials: 'TU',
+    password: 'testUser',
   }),
 ];

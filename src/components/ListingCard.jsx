@@ -9,7 +9,7 @@ const ListingCard = ({ listing }) => {
   return (
     <Link to={`/listings/${listing.id}`}>
       <Card className='w-[320px]'>
-      <div className='relative'>
+        <div className='relative'>
           <ListingCardImages listing={listing} />
           <ListingFavoriteButton
             listing={listing}
