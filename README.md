@@ -1,6 +1,6 @@
 # Project React
 
-Learn React by building a real-world project.
+The app project is deployed here: https://booking-rho-eight.vercel.app
 
 ## Running the project
 
